@@ -13,4 +13,5 @@ import { AppComponent } from './app.component';
   providers: [],
   bootstrap: [AppComponent]
 })
+// export == classe publica
 export class AppModule { }
