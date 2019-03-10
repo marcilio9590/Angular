@@ -12,6 +12,7 @@ export class AppComponent {
   // tipagem de variavel -> : 
   // any = qualquer coisa(ex: Object) 
   // any[] -> uma lista
+  public mode: String = 'list';
   public todos: Todo[] = [];
   public title: String = 'Minhas Tarefas';
   public form: FormGroup;
@@ -63,13 +64,20 @@ export class AppComponent {
   save() {
     const data = JSON.stringify(this.todos);
     localStorage.setItem('todos', data);
+    this.changeMode('list');
   }
 
   load() {
     const data = localStorage.getItem('todos');
     if (data) {
       this.todos = JSON.parse(data);
+    } else {
+      this.todos = [];
     }
     this.todos
+  }
+
+  changeMode(mode: String) {
+    this.mode = mode;
   }
 }
